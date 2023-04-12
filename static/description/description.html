@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Templates/header/header.css">
+    <link rel="stylesheet" href="/static/description/description.css">
+    <title>Description</title>
+</head>
+<body>
+    {{template "header" .}}<br><br>
+    <div class="container">
+        <div class="card">
+            <div class="card_content">
+                <div class="details">
+                    <h3 style="text-decoration: underline;">Date de création du groupe :</h3>
+                    <h3 class="policesize">{{.Creationdate}}</h3>
+                    <h3 style="text-decoration: underline;">Membres du groupe :</h3>
+                    {{range .Members}}
+                        <a class="policesize">"{{.}}"</a>
+                    {{end}}
+                    <h3 style="text-decoration: underline;">Premier Album :</h3>
+                    <h3 class="policesize">{{.Firstalbum}}</h3>
+                    <h3 style="text-decoration: underline;">Localisations/Dates des corcerts :</h3>
+                    {{ range $location, $dates := .CIndex }}
+                    <div id="location">
+                        <div class="dates">
+                         <li><strong>{{ $location }}</strong>:
+                         {{range $dates}}
+                         "{{ . }}"  
+                         {{end}}</div></li>
+                    </div>
+                    {{ end }}
+                </div>
+                <div class="groupcard">
+                    <div class="groupcard_content">
+                        <div class="name">
+                            <h3>{{.Name}}</h3>
+                        </div>
+                          <img class="img" src="{{.Image}}" style="border-radius: 15%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/artistes/lArtistes.css">
+    <link rel="stylesheet" href="/static/header.css">
+    <title>Artistes</title>
+</head>
+<body>
+    {{template "header" .}} 
+    <div class="container">
+        <form method="POST">            
+        <div class="search-bar"> 
+            <span class="typetext">Search Bar :</span><br>          
+            <input lit="search" id="searchname" type="search" name="searchbar" class="input" placeholder="Type here...">
+            <input style="display:none;" type="submit">
+        </div>
+        </form>
+        <form class="form" method="POST">            
+            <div class="filter">           
+                <input type="checkbox" id="cbx2" style="display: none;">
+                <label for="cbx2" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <span class="typetext">Date de Création :</span><br>
+                <input id="searchname" type="number" name="date" class="inputcrea" placeholder="Type here...">
+                <input id="searchname" type="number" name="date" class="inputcrea" placeholder="Type here...">
+                <span class="typetext">Date du Premier Album :</span><br>
+                <input id="searchname" type="date" name="date" class="inputalbum" placeholder="Type here...">
+                <input type="checkbox" id="cbx3" style="display: none;">
+                <label for="cbx3" class="check2">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <span class="typetext">Membres</span><br>
+                <input id="range" type="range" name="range" class="range" pmin="0" max="10" value="0" step="1">
+                <span class="member0" style="font-family:vani">0</span>
+                <input style="display: none" type="submit">
+                <span class="member10"style="font-family:vani">10</span>
+
+            </div>
+            </form>
+        <div class="artistes">
+            {{range .}}
+           <div class="card">
+                <div class="card_content">
+                    {{template "groups" .}}
+                    <form method="get" action="/Description">
+                        <button value="{{.Id}}" name="Artiste">
+                            <span class="text">Détails</span>
+                        </button>
+                    </form>
+                </div>
+            </div> 
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>

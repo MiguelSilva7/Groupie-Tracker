@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    display: flex;
+    height: 140px;
+    width: 100%;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.divlogo{
+  width: 10%;
+}
+a{
+  text-decoration: none;
+}
+.logo{
+  background-size: cover;
+  width: 80%;
+  height: 80%;
+}
+.menu{
+  cursor: pointer;
+}
+.nomlogo{
+  width: 105%;
+  text-align: inherit;
+  border-radius: 11px;
+  font-size: 350%;
+  font-family: "simple";
+  color: rgb(44, 44, 44);
+  background-color: beige;
+  background-image: linear-gradient(144deg,beige,rgb(126, 126, 126) 50%,beige);
+}
+
+@font-face{
+  font-family: "simple";
+  src:url("/static/police/SimpleThread_PERSONAL_USE_ONLY.otf") format("opentype") ;
+}
